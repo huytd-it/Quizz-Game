@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".RegisterActivity">
 
     <Button
         android:id="@+id/button3"
@@ -70,7 +70,7 @@
         android:id="@+id/imageView"
         android:layout_width="41dp"
         android:layout_height="32dp"
-        app:srcCompat="@drawable/ic_credit"
+        app:srcCompat="@drawable/small_diamond"
         tools:layout_editor_absoluteX="160dp"
         tools:layout_editor_absoluteY="181dp" />
 

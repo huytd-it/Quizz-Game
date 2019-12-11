@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
+    tools:context=".LoginActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <LinearLayout
@@ -117,7 +117,7 @@
                 android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/tvCauHoi"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:background="@drawable/circle"
@@ -130,7 +130,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/tvThoiGian"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
@@ -151,14 +151,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/tvNoiDung"
                 style="@style/TVCauHoi"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:text="Vị vua đầu tiên của nước Việt Nam?Vị vua đầu tiên của nước Việt Nam?" />
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/btnDapAnA"
                 style="@style/btnA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -166,14 +166,14 @@
                 android:text="Đáp án A" />
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/btnDapAnB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Button"
                 style="@style/btnB"/>
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/btnDapAnC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/michroma"
@@ -181,7 +181,7 @@
                 style="@style/btnC"/>
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/btnDapAnD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Button"
@@ -212,6 +212,14 @@
                     android:layout_width="47dp"
                     android:layout_height="47dp"
                     app:srcCompat="@drawable/ic_group" />
+
+                <ImageButton
+                    android:id="@+id/btnNext"
+                    android:layout_width="47dp"
+                    android:layout_height="47dp"
+
+                    android:background="@mipmap/ic_next"
+                    android:text="Button" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
