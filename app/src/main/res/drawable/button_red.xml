@@ -5,5 +5,5 @@
        android:dashGap="@dimen/cardview_default_elevation">
    </stroke>
     <corners android:radius="20dp"/>
-    <solid android:color="#ffff"></solid>
+    <solid android:color="@color/red"></solid>
 </shape>
