@@ -1,10 +1,14 @@
 package com.yukihuy.myapplication;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +21,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class QuestionActivity extends AppCompatActivity {
-    private ImageButton btn_next;
+    private ImageButton btn_next,btnAskIdeaAudience,btnAskFamylier,btnFiftyPercen;
+    Dialog epicDialog;
+    ImageView imgCloseDialogt;
 
     ArrayList<Question> lst_cauhoi;
     int point=0;
@@ -28,7 +34,7 @@ public class QuestionActivity extends AppCompatActivity {
     TextView m_rad_DA2;
     TextView m_rad_DA3;
     TextView m_rad_DA4;
-    TextView m_tv_time;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,22 +46,34 @@ public class QuestionActivity extends AppCompatActivity {
         m_rad_DA2 = (Button) findViewById(R.id.btnDapAnB);
         m_rad_DA3 = (Button) findViewById(R.id.btnDapAnC);
         m_rad_DA4 = (Button) findViewById(R.id.btnDapAnD);
-        m_tv_time = findViewById(R.id.tvThoiGian);
-        Next();
-       btn_next=findViewById(R.id.btnNext);
-        btn_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(point<=15){
-                    point ++;
-                    Next();
 
-                }
-                new APIGetting(m_tv_time).execute();
+       // Next();
+       //Dialog
+        epicDialog = new Dialog(this);
+        btnAskIdeaAudience = (ImageButton) findViewById(R.id.btnHoiYKien);
+
+        btnAskIdeaAudience.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAskIdeaAudience();
             }
         });
 
 
+    }
+
+    protected void showAskIdeaAudience(){
+        epicDialog.setContentView(R.layout.ask_audience_dialog);
+        imgCloseDialogt =(ImageView) epicDialog.findViewById(R.id.imgClose);
+
+        imgCloseDialogt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                epicDialog.dismiss();
+            }
+        });
+        epicDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        epicDialog.show();
     }
 
     //
