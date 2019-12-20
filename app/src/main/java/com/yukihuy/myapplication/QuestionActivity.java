@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -42,6 +44,9 @@ import java.util.Date;
 import java.util.Random;
 
 public class QuestionActivity extends AppCompatActivity {
+
+    Animation animRotate1, animRotate2,animRotate3,animBlink;
+    ImageView imgClockBig,imgClockMedium,imgClockSmall;
     BarChart barChart;
     ArrayList<String> dates;
     Random random;
@@ -63,7 +68,7 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ask_audience_dialog);
+        setContentView(R.layout.activity_game);
 
         m_txt_num = (TextView) findViewById(R.id.tvCauHoi);
         m_txt_content = (TextView) findViewById(R.id.tvNoiDung);
@@ -71,13 +76,17 @@ public class QuestionActivity extends AppCompatActivity {
         m_rad_DA2 = (Button) findViewById(R.id.btnDapAnB);
         m_rad_DA3 = (Button) findViewById(R.id.btnDapAnC);
         m_rad_DA4 = (Button) findViewById(R.id.btnDapAnD);
-
-        //Next();
         barChart = (BarChart)findViewById(R.id.bargraph);
-        Chart();
+
+
+        setAnimationImage();
+        //Next();
+
+
 
         //Dialog
-      /* epicDialog = new Dialog(this);
+        epicDialog = new Dialog(this);
+        //Chart();
         btnAskIdeaAudience = (ImageButton) findViewById(R.id.btnHoiYKien);
         btnAskIdeaAudience.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,9 +94,25 @@ public class QuestionActivity extends AppCompatActivity {
                 showAskIdeaAudience();
 
             }
-        });*/
+        });
 
 
+    }
+
+    private void setAnimationImage() {
+        imgClockBig =(ImageView) findViewById(R.id.imgClockbig);
+        imgClockMedium=(ImageView) findViewById(R.id.imgClockMedium);
+        imgClockSmall =(ImageView) findViewById(R.id.imgClockSmall);
+
+        animRotate1= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        animRotate2= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_2);
+        animRotate3 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        animBlink = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.blink);
+        // set animation listener
+        imgClockBig.startAnimation(animRotate1);
+        imgClockMedium.startAnimation(animRotate2);
+        imgClockSmall.startAnimation(animRotate3);
+        m_txt_num.startAnimation(animBlink);
     }
 
     public void Chart() {

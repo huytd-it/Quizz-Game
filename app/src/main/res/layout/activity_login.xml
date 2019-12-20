@@ -24,7 +24,7 @@
             android:layout_width="162dp"
             android:layout_height="120dp"
             style="@style/ImageViewStyle"
-            app:srcCompat="@drawable/iconfinder_user_1287507" />
+            app:srcCompat="@drawable/iconfinder_people_3336938" />
         <EditText
             android:id="@+id/editText"
             style="@style/edtName"

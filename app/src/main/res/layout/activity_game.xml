@@ -30,38 +30,54 @@
                 style="@style/tvTitle"
                 />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center">
 
                 <TextView
                     android:id="@+id/tvCauHoi"
-                    style="@style/tvKhongKhung"
-                    android:layout_width="87dp"
-                    android:layout_height="89dp"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/circle"
-                    android:gravity="center"
+                    style="@style/tvTitle"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_centerInParent="true"
                     android:text="15"
                     android:textColor="@color/red"
-                    android:textSize="40dp"
+                    android:textSize="35dp"
                     android:textStyle="bold" />
 
+                <ImageView
+                    android:id="@+id/imgClockbig"
+                    android:layout_width="115dp"
+                    android:layout_height="110dp"
+                    app:srcCompat="@drawable/clock"
+                    android:layout_centerHorizontal="true"/>
+                <ImageView
+                    android:id="@+id/imgClockMedium"
+                    android:layout_width="90dp"
+                    android:layout_height="80dp"
+                    app:srcCompat="@drawable/clock"
+                    android:layout_centerInParent="true"/>
+                <ImageView
+                    android:id="@+id/imgClockSmall"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    app:srcCompat="@drawable/clock"
+                    android:layout_centerInParent="true"/>
                 <TextView
                     android:id="@+id/tvThoiGian"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
+                    android:layout_alignParentRight="true"
                     android:background="@drawable/button"
-                    android:fontFamily="@font/michroma"
-                    android:gravity="center"
+                    style="@style/tvTitle"
                     android:text="30"
                     android:textColor="@color/red"
                     android:textSize="20dp" />
-            </LinearLayout>
+            </RelativeLayout>
 
 
 
