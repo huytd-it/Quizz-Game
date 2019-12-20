@@ -2,9 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     tools:context=".QuestionActivity"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     android:gravity="center">
@@ -13,7 +12,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="2dp"
-        android:layout_marginRight="2dp"
+        android:layout_marginRight="8dp"
         android:src="@drawable/close"
         android:elevation="6dp"
         android:layout_alignParentRight="true"
@@ -22,7 +21,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="@color/white"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         >
@@ -30,7 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/button_red"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,21 +42,16 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/tvKhongKhung"
+                    style="@style/tvTitle"
                     android:textAlignment="center"
-                    android:text="Hỏi ý kiến khán giả"
-                    android:textSize="25dp"
+                    android:text="ý kiến khán giả tại trường quay"
+                    />
 
-                    />
-                <ImageView
-                    android:id="@+id/imgIcon"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:src="@drawable/small_diamond"
-                    android:layout_gravity="center"
-                    style="@style/ImageViewStyle"
-                    android:layout_marginBottom="10dp"
-                    />
+                <com.github.mikephil.charting.charts.BarChart
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:id="@+id/bargraph">
+                </com.github.mikephil.charting.charts.BarChart>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

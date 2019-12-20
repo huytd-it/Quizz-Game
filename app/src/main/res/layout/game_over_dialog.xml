@@ -27,6 +27,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
+                android:gravity="center"
                 >
                 <TextView
                     android:id="@+id/tvTitle"
@@ -34,7 +35,7 @@
                     android:layout_height="wrap_content"
                     style="@style/tvTitle"
                     android:textAlignment="center"
-                    android:text="Đáp án từ người thân"
+                    android:text="Lượt chơi kết thúc"
                     android:textColor="@color/white"
 
 
@@ -44,18 +45,43 @@
                     android:id="@+id/tvDapAnNguoiThan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="B"
+                    android:text="13"
                     style="@style/tvTitle"
-                    android:textSize="250dp"
+                    android:textSize="150dp"
                     android:textColor="@color/red"/>
+                <TextView
+                    android:id="@+id/ttt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Số điểm đạt được"
+                    style="@style/tvContent"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:id="@+id/tvDiem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="25.000"
+                    style="@style/tvTitle"
+                    android:textSize="50dp"
+                    android:textColor="@color/white"/>
 
                 <Button
                     android:id="@+id/button8"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:text="Xin cảm ơn"
+                    android:text="Thêm 1 lượt 300 credit"
                     style="@style/btnAnswer"
-                    android:layout_margin="35dp"
+
+
+                    />
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="Kết thúc"
+                    style="@style/btnAnswer"
+
                     />
 
             </LinearLayout>

@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.TextView;
 
-import java.lang.ref.WeakReference;
 
 public class APIGetting extends AsyncTask<String, String, String> {
     private Context m_con;

@@ -41,7 +41,7 @@
             android:id="@+id/button3"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            style="@style/btnRed"
+            style="@style/btnAnswer"
             android:text="Đăng kí tài khoản"/>
     </LinearLayout>
     <LinearLayout
