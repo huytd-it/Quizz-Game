@@ -17,12 +17,31 @@
       >
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView18"
             style="@style/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="AI LÀ TRIỆU PHÚ"
-            android:textColor="#ffff"
+            android:textColor="@color/white"
+            android:textSize="45dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/tvContent"
+            android:text="Đăng nhập để chơi"
+            android:textColor="@color/white"
             android:textStyle="bold"
+            android:textSize="25dp"
         />
+
+        <ImageView
+            android:id="@+id/imgArrow"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="15dp"
+
+            app:srcCompat="@drawable/ic_arrow" />
 
         <Button
             android:id="@+id/button"

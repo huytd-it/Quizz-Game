@@ -60,7 +60,7 @@
 
             <Button
                 android:id="@+id/button3"
-                style="@style/btnRed"
+                style="@style/btnAnswer"
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
                 android:text="Cập nhật"
@@ -70,31 +70,7 @@
         </LinearLayout>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/tvContent"
-            android:layout_margin="0dp"
-            android:text="Quên mật khẩu ?"
 
-            />
-        <TextView
-            android:id="@+id/titleRegister2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng kí"
-            style="@style/tvContent"
-            android:textColor="@color/red"
-            android:layout_margin="0dp"
-            android:textStyle="bold"
-           />
-    </LinearLayout>
 
 
 </RelativeLayout>

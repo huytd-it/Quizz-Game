@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/textView13"
-            style="@style/BasicTextViewStyle"
+            style="@style/tvContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -27,10 +27,8 @@
             android:id="@+id/tvCauHoi"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
+            style="@style/tvTitle"
             android:background="@drawable/circle"
-            android:fontFamily="@font/michroma"
             android:gravity="center"
             android:text="15"
             android:textColor="@color/red"

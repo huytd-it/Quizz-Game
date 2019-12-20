@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:text="13"
                     style="@style/tvTitle"
-                    android:textSize="150dp"
+                    android:textSize="120dp"
                     android:textColor="@color/red"/>
                 <TextView
                     android:id="@+id/ttt"
