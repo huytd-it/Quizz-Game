@@ -35,14 +35,14 @@
         android:background="@color/red">
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/tvCreditCurrent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2000"
 
             android:textColor="@color/black"
             android:textSize="20dp"
-            style="@style/tvContent" />
+            style="@style/tvContentMedium" />
 
         <ImageView
             android:id="@+id/imageView14"

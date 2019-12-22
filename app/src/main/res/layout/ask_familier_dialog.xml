@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:text="B"
                     style="@style/tvTitle"
-                    android:textSize="250dp"
+                    android:textSize="200dp"
                     android:textColor="@color/red"/>
 
                 <Button

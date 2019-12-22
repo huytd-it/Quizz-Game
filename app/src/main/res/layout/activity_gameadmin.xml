@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameAdminActivity"
+    tools:context=".View.GameAdminActivity"
     android:gravity="center"
     >
 
@@ -30,7 +30,7 @@
                 app:srcCompat="@drawable/ic_user" />
             <TextView
                 android:id="@+id/textView6"
-                style="@style/tvKhongKhung"
+                style="@style/tvRegular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trần Đình Huy"
@@ -54,7 +54,7 @@
 
                 <TextView
                     android:id="@+id/textView3"
-                    style="@style/tvKhongKhung"
+                    style="@style/tvRegular"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,34 +72,39 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnNewGame"
                 style="@style/btnBlack"
                 android:layout_height="59dp"
+                android:onClick="onHomeButtonOnClick"
                 android:text="Trò chơi mới" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnHistory"
                 style="@style/btnBlack"
                 android:layout_height="59dp"
                 android:background="@drawable/button_black"
+                android:onClick="onHomeButtonOnClick"
                 android:text="Lịch sữ trò chơi" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/btnAccount"
                 style="@style/btnBlack"
                 android:layout_height="59dp"
+                android:onClick="onHomeButtonOnClick"
                 android:text="Quản lý tài khoản" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnRank"
                 style="@style/btnBlack"
                 android:layout_height="59dp"
+                android:onClick="onHomeButtonOnClick"
                 android:text="Bảng xếp hạng" />
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/btnBuyCredit"
                 style="@style/btnBlack"
                 android:layout_height="59dp"
+                android:onClick="onHomeButtonOnClick"
                 android:text="Mua Credit" />
         </LinearLayout>
 

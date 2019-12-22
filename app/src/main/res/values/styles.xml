@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:fontFamily">@font/regular</item>
     </style>
 
 
@@ -33,7 +33,6 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingTop">-5dp</item>
         <item name="android:paddingLeft">5dp</item>
         <item name="android:paddingRight">5dp</item>
 
@@ -53,6 +52,8 @@
         <item name="android:layout_width">25dp</item>
         <item name="android:layout_margin">3dp</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/red</item>
+        <item name="android:backgroundTintMode">add</item>
         <item name="android:src">@drawable/ic_heart</item>
     </style>
     <style name="ImgSupport" parent="ImageViewStyle">
@@ -62,7 +63,7 @@
 
     </style>
 
-    <style name="tvKhongKhung" parent="BasicTextViewStyle">
+    <style name="tvRegular" parent="BasicTextViewStyle">
         <item name="android:textSize">20dp</item>
     </style>
     <style name="tvTitle" parent="BasicTextViewStyle">
@@ -70,16 +71,32 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
     </style>
-    <style name="tvContent" parent="BasicTextViewStyle">
+
+    <!--Style TextView Content
+    Small
+    Regular
+    Medium
+    Question
+    Answer
+    -->
+    <style name="tvContentMedium" parent="BasicTextViewStyle">
         <item name="android:textSize">20dp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
 
-    <style name="TVCauHoi" parent="BasicTextViewStyle">
+    <style name="tvContentSmall" parent="BasicTextViewStyle">
+        <item name="android:textSize">12dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="tvQuestion" parent="BasicTextViewStyle">
         <item name="android:textSize">20dp</item>
-        <item name="android:background">@drawable/button</item>
+        <item name="android:background">@drawable/button_white_red</item>
         <item name="android:gravity">left|center</item>
+        <item name="android:padding">13dp</item>
     </style>
     <style name="BasicHinhTronStyle" parent="Widget.AppCompat.TextView">
         <item name="android:background">@drawable/circle</item>
@@ -104,6 +121,7 @@
         <item name="android:background">@drawable/button_red</item>
     </style>
     <style name="btnAnswer" parent="btnRed">
+        <item name="android:fontFamily">@font/bold</item>
         <item name="android:gravity">center</item>
         <item name="android:textAllCaps">true</item>
     </style>
