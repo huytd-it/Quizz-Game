@@ -1,8 +1,10 @@
-package com.yukihuy.myapplication;
+package com.yukihuy.myapplication.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.yukihuy.myapplication.R;
 
 public class GetPassWordActivity extends AppCompatActivity {
 

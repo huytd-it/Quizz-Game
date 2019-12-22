@@ -1,4 +1,4 @@
-package com.yukihuy.myapplication;
+package com.yukihuy.myapplication.API;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,15 +7,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class QuestionAPI {
-    static String getQuestions(String Level)
+public class FieldAPI{
+    public static String getField()
     {
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         String result = null;
         try {
 
-            URL requestURL = new URL("http://192.168.56.1:8080/api/api.php?DoKho="+Level);
+            URL requestURL = new URL("http://192.168.56.1:8080/Karma_Laravel/public/api/linh_vuc");
             urlConnection = (HttpURLConnection) requestURL.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
@@ -48,5 +48,4 @@ public class QuestionAPI {
         }
         return result;
     }
-
 }

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-   <stroke android:color="@color/red"
-       android:width="2dp"
-       android:dashGap="@dimen/cardview_default_elevation">
-   </stroke>
-    <corners android:radius="20dp"/>
-    <solid android:color="#ffff"></solid>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/button_black"/>
+    <item android:state_focused="true" android:drawable="@drawable/button_white_red"/>
+    <item android:state_active="true" android:drawable="@drawable/button_white_red"/>
+    <item android:state_hovered="true" android:drawable="@drawable/button_black"/>
+    <item android:drawable="@drawable/button_red"></item>
+</selector>

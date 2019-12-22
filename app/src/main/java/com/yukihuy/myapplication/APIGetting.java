@@ -17,10 +17,8 @@ public class APIGetting extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-
         Intent intent=new Intent(m_con,QuestionActivity.class);
         intent.putExtra("Message",s);
-
         Activity activity=(Activity)m_con;
         activity.startActivity(intent);
     }
@@ -33,7 +31,6 @@ public class APIGetting extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... level) {
-
         return QuestionAPI.getQuestions(level[0]);
     }
 

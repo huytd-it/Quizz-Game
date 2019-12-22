@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/textView"
-            style="@style/tvContent"
+            style="@style/tvContentMedium"
             android:text="Đăng nhập để chơi"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -62,7 +62,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/tvContent"
+            style="@style/tvContentMedium"
             android:layout_margin="0dp"
             android:text="Quên mật khẩu ?"
 
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đăng kí"
-            style="@style/tvContent"
+            style="@style/tvContentMedium"
             android:textColor="@color/red"
             android:layout_margin="0dp"
             android:textStyle="bold"
