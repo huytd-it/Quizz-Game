@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".View.AccountManagerActivity"
     >
 
     <LinearLayout
@@ -22,11 +22,11 @@
                 android:text="Quản lý tài khoản"
                 style="@style/tvTitle"/>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView"
                 android:layout_width="162dp"
                 android:layout_height="120dp"
-                app:srcCompat="@drawable/ic_user"
+                android:background="@drawable/ic_user"
                 android:layout_gravity="center"/>
         </LinearLayout>
 
@@ -59,8 +59,8 @@
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/button3"
-                style="@style/btnRed"
+                android:id="@+id/btnUpdate"
+                style="@style/btnAnswer"
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
                 android:text="Cập nhật"
@@ -70,31 +70,7 @@
         </LinearLayout>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/tvContent"
-            android:layout_margin="0dp"
-            android:text="Quên mật khẩu ?"
 
-            />
-        <TextView
-            android:id="@+id/titleRegister2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng kí"
-            style="@style/tvContent"
-            android:textColor="@color/red"
-            android:layout_margin="0dp"
-            android:textStyle="bold"
-           />
-    </LinearLayout>
 
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LinhVucActivity">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/textView13"
-            style="@style/BasicTextViewStyle"
+            style="@style/tvContentMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -24,65 +24,27 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvCauHoi"
+            android:id="@+id/tvTimeLife"
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
+            style="@style/tvTitle"
             android:background="@drawable/circle"
-            android:fontFamily="@font/michroma"
             android:gravity="center"
             android:text="15"
             android:textColor="@color/red"
             android:textSize="50dp"
             android:textStyle="bold" />
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="Chọn lĩnh vực"
+            style="@style/tvContentMedium" />
 
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chọn lĩnh vực"
-                style="@style/tvContent"
-                />
-
-            <Button
-                android:id="@+id/btnToan"
-                style="@style/btnAnswer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="btnLevel_click"
-                android:text="toán" />
-
-            <Button
-                android:id="@+id/btnHoa"
-                style="@style/btnAnswer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="btnLevel_click"
-                android:text="hóa" />
-
-            <Button
-                android:id="@+id/btnVan"
-                style="@style/btnAnswer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="btnLevel_click"
-                android:text="Văn" />
-
-            <Button
-                android:id="@+id/btnLichSu"
-                style="@style/btnAnswer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="btnLevel_click"
-                android:text="lịch sữ" />
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
     </LinearLayout>

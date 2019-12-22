@@ -7,6 +7,8 @@
     tools:context=".QuestionActivity"
     >
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,121 +17,277 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-           >
+            android:orientation="vertical">
 
             <include layout="@layout/layout" />
 
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="Điểm: 5000"
-                android:textStyle="bold"
-                style="@style/tvTitle"
-                />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center">
 
                 <TextView
-                    android:id="@+id/tvCauHoi"
-                    style="@style/tvKhongKhung"
-                    android:layout_width="87dp"
-                    android:layout_height="89dp"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/circle"
-                    android:gravity="center"
-                    android:text="15"
-                    android:textColor="@color/red"
-                    android:textSize="40dp"
+                    android:id="@+id/tvPoint"
+                    style="@style/tvContentMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Điểm: 5000"
+                    android:textAllCaps="false"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvThoiGian"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/button"
-                    android:fontFamily="@font/michroma"
-                    android:gravity="center"
-                    android:text="30"
+                    android:id="@+id/tvTimeLife"
+                    style="@style/tvTitle"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="14dp"
+                    android:text="15"
                     android:textColor="@color/red"
-                    android:textSize="20dp" />
+                    android:textSize="35dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/imgClockbig"
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    app:srcCompat="@drawable/clock" />
+
+                <ImageView
+                    android:id="@+id/imgClockMedium"
+                    android:layout_width="90dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/clock" />
+
+                <ImageView
+                    android:id="@+id/imgClockSmall"
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/clock" />
+                <TextView
+                    android:id="@+id/tvNumberQuestion"
+                    style="@style/tvTitle"
+                    android:fontFamily="sans-serif"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="1"
+                   android:layout_marginLeft="15dp"
+                    android:textColor="@color/red"
+                    android:textSize="50dp"
+                    android:background="@drawable/button_black"/>
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNoiDung"
+                    style="@style/tvQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineHeight="25dp"
+                    android:text="Vị vua đầu tiên của nước Việt Nam? Vị vua đầu tiên của nước Việt Nam?Vị vua đầu tiên của nước Việt Nam? Vị vua đầu tiên của nước Việt Nam?"
+                    android:textSize="17dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDapAnA"
+                        style="@style/btnRed"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/button"
+                        android:text="A.Hưng Hòa Hồng Hoang" />
+
+                    <Button
+                        android:id="@+id/btnDapAnB"
+                        style="@style/btnRed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button"
+                        android:text="B.Hậu Lê" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDapAnC"
+                        style="@style/btnRed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/button"
+                        android:text="Trần"
+                        />
+
+                    <Button
+                        android:id="@+id/btnDapAnD"
+                        style="@style/btnRed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Lý" />
+                </LinearLayout>
+
             </LinearLayout>
 
-
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvNoiDung"
-                style="@style/TVCauHoi"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textSize="17dp"
-                android:lineHeight="25dp"
-                android:text="Vị vua đầu tiên của nước Việt Nam? Vị vua đầu tiên của nước Việt Nam?" />
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:background="@drawable/button_white_red"
+            android:orientation="horizontal"
+           >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnDapAnA"
-                    style="@style/btnRed"
-                    android:background="@drawable/button_success"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="A.Hưng Hòa Hồng Hoang" />
-
-                <Button
-                    android:id="@+id/btnDapAnB"
-                    style="@style/btnRed"
-                    android:background="@drawable/button_fail"
+                <TextView
+                    android:id="@+id/textView23"
+                    style="@style/tvContentSmall"
+                    android:background="@color/red"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="B.Hậu Lê" />
+                    android:text="1 - 500.000" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    style="@style/tvContentSmall"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2 - 500.000" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5- 15.000.000" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnDapAnC"
-                    style="@style/btnRed"
-                    android:background="@drawable/button"
-                    android:textColor="@color/black"
+                <TextView
+                    android:id="@+id/textView23"
+                    style="@style/tvContentSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Trần" />
+                    android:text="6- 15.000.000" />
 
-                <Button
-                    android:id="@+id/btnDapAnD"
-                    style="@style/btnRed"
+                <TextView
+                    android:id="@+id/textView22"
+                    style="@style/tvContentSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Lý" />
+                    android:text="7- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10- 15.000.000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView23"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="11- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="13- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="14- 15.000.000" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    style="@style/tvContentSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="15- 15.000.000" />
             </LinearLayout>
 
         </LinearLayout>
 
-        </LinearLayout>
     </LinearLayout>
 
 
@@ -145,7 +303,7 @@
         <ImageButton
             android:layout_width="77dp"
             android:layout_height="55dp"
-            android:id="@+id/btnHoiYKien"
+            android:id="@+id/btnAskFamilier"
             android:scaleType="fitCenter"
             style="@style/ImgSupport"
             android:src="@drawable/call_center" />
@@ -153,7 +311,7 @@
         <ImageButton
             android:layout_width="77dp"
             android:layout_height="55dp"
-            android:id="@+id/imageView9"
+            android:id="@+id/btnFiftyPercent"
             style="@style/ImgSupport"
             android:src="@drawable/speed"
             android:scaleType="fitCenter"
@@ -162,16 +320,16 @@
         <ImageButton
             android:layout_width="77dp"
             android:layout_height="55dp"
-            android:id="@+id/imageView15"
+            android:id="@+id/btnAskAudi"
             style="@style/ImgSupport"
             android:src="@drawable/many_people" />
         <ImageButton
             android:layout_width="77dp"
             android:layout_height="55dp"
-            android:id="@+id/imageView19"
+            android:id="@+id/btnBuyCredit"
             style="@style/ImgSupport"
-            android:layout_marginEnd="0dp"
-            android:src="@drawable/small_diamond" />
-
+            android:src="@drawable/small_diamond"
+             />
     </LinearLayout>
+
 </RelativeLayout>

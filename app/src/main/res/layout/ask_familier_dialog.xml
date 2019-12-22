@@ -27,6 +27,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"
+                android:gravity="center"
                 >
                 <TextView
                     android:id="@+id/tvTitle"
@@ -36,26 +37,24 @@
                     android:textAlignment="center"
                     android:text="Đáp án từ người thân"
                     android:textColor="@color/white"
-
-
                     />
 
                 <TextView
                     android:id="@+id/tvDapAnNguoiThan"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="B"
                     style="@style/tvTitle"
-                    android:textSize="250dp"
+                    android:textSize="200dp"
                     android:textColor="@color/red"/>
 
                 <Button
                     android:id="@+id/button8"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="Xin cảm ơn"
                     style="@style/btnAnswer"
-                    android:layout_margin="35dp"
+
                     />
 
             </LinearLayout>
