@@ -1,6 +1,5 @@
 package com.yukihuy.myapplication.Apdapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -13,15 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.yukihuy.myapplication.APIGetting;
 import com.yukihuy.myapplication.Model.Field;
 import com.yukihuy.myapplication.QuestionActivity;
 import com.yukihuy.myapplication.R;
-import com.yukihuy.myapplication.View.LinhVucActivity;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.concurrent.ExecutionException;
 
 public class FieldListAdapter extends RecyclerView.Adapter<FieldListAdapter.FieldViewHoder>{
     public Context mContext;
@@ -29,7 +26,7 @@ public class FieldListAdapter extends RecyclerView.Adapter<FieldListAdapter.Fiel
     private LayoutInflater mInflater;
 
 
-    public FieldListAdapter(Context context,ArrayList<Field> fieldLinkedList) {
+    public FieldListAdapter(Context context, ArrayList<JSONObject> fieldLinkedList) {
         mInflater = LayoutInflater.from(context);
         this.mfieldLinkedList = fieldLinkedList;
     }

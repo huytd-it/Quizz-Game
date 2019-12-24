@@ -1,22 +1,18 @@
 package com.yukihuy.myapplication.View;
 
-import android.app.job.JobInfo;
+
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+
 import com.yukihuy.myapplication.Apdapter.FieldListAdapter;
-import com.yukihuy.myapplication.Model.Field;
+import com.yukihuy.myapplication.Asynctask.Asynctask_LinhVuc;
+
+
 import com.yukihuy.myapplication.R;
 
 import org.json.JSONArray;
@@ -26,24 +22,38 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class LinhVucActivity extends AppCompatActivity {
-    ArrayList<Field> list = new ArrayList<>();
 
-    private RecyclerView rcvFieldList;
-    private FieldListAdapter mAdapter;
-    private RequestQueue requestQueue;
-    private String url = "http://192.168.56.1:8080/Karma_Laravel/public/api/linh_vuc";
-
+    private String url = "http://192.168.56.1:8080/Laravel_QuanLyDuLieuGame/public/api/linh_vuc";
+    RecyclerView rcvFieldList;
+    FieldListAdapter mAdapter;
+    ArrayList<JSONObject> list = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linh_vuc);
-        //loadField();
-        //dataExample();
-        readJSON();
-
-
+        rcvFieldList = findViewById(R.id.rcvField);
+        Asynctask_LinhVuc asynctask_linhVuc = new Asynctask_LinhVuc(this){
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                super.onPostExecute(jsonObject);
+                try {
+                    if(jsonObject.getBoolean("success")== true){
+                        JSONArray jsonArray = jsonObject.getJSONArray("data");
+                        for (int i = 0;i<jsonArray.length();i++){
+                            list.add(jsonArray.getJSONObject(i));
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        asynctask_linhVuc.execute(url);
+        mAdapter = new FieldListAdapter(this,list);
+        rcvFieldList.setAdapter(mAdapter);
+        rcvFieldList.setLayoutManager(new LinearLayoutManager(LinhVucActivity.this));
     }
-
+/*
     private void readJSON() {
         requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -66,67 +76,6 @@ public class LinhVucActivity extends AppCompatActivity {
                         rcvFieldList = findViewById(R.id.rcvField);
                         rcvFieldList.setAdapter(mAdapter);
                         rcvFieldList.setLayoutManager(new LinearLayoutManager(LinhVucActivity.this));
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(LinhVucActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }
-        );
-        requestQueue.add(request);
-    }
-
-
-/*
-
-    public void loadField() {
-        String jSonString;
-        jSonString = "";
-
-        if (getFieldList(jSonString) == true) {
-            Toast.makeText(this, "Load thành công", Toast.LENGTH_SHORT);
-        } else {
-            Field field = new Field(1, "Thiên văn");
-            list.addLast(field);
-        }
-    }
-
-    public boolean getFieldList(String jsonString) {
-        try {
-            list = new LinkedList<>();
-            JSONArray jsonArray = new JSONArray(jsonString);
-            int len = jsonArray.length();
-            for (int i = 0; i < len; i++) {
-                Field field = Field.ParseJson(Field.class, jsonString);
-                list.addLast(field);
-            }
-            return true;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-    }
-
-    public void readJSON() {
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.start();
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.56.1:8080/Karma_Laravel/public/api/linh_vuc", null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONArray jsonArray = response.getJSONArray("data");
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject fieldItem = jsonArray.getJSONObject(i);
-                        int id = fieldItem.getInt("id");
-                        String ten_linh_vuc = fieldItem.getString("ten_linh_vuc");
-                        list.addLast(new Field(id, ten_linh_vuc));
                     }
 
                 } catch (JSONException e) {
