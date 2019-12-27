@@ -1,31 +1,64 @@
 package com.yukihuy.myapplication.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 
+
+import com.yukihuy.myapplication.Apdapter.RankListAdapter;
+import com.yukihuy.myapplication.Model.PlayTime;
 import com.yukihuy.myapplication.R;
 
+import java.util.LinkedList;
+
+import ml.huytools.lib.API.ApiOutput;
+import ml.huytools.lib.API.ApiProvider;
+import ml.huytools.lib.App;
+
+
 public class RankActivity extends AppCompatActivity {
-    ImageView imgRotate1,imgRotate2,imgRotate3;
-    Animation animRotate,animRotate2;
+    private RecyclerView recyclerView;
+    private RankListAdapter mAdapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
-        imgRotate3 = findViewById(R.id.imgRotate3);
-        imgRotate1 = findViewById(R.id.imgRotate1);
-        imgRotate2 = findViewById(R.id.imgRotate2);
-        animRotate = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_2);
-        imgRotate1.startAnimation(animRotate);
-        animRotate2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
-        imgRotate2.startAnimation(animRotate2);
-        animRotate = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
-        imgRotate3.startAnimation(animRotate);
+        recyclerView = findViewById(R.id.rcvRank);
+        //setAnimation();
+        App.getInstance().init(this);
 
+
+        ApiProvider.Async.GET("/luot_choi").Then(new ApiProvider.Async.Callback() {
+            @Override
+            public void OnAPIResult(ApiOutput output, int requestCode) {
+                LinkedList<PlayTime> playTimes = output.toModelManager(PlayTime.class);
+                mAdapter = new RankListAdapter(RankActivity.this,playTimes);
+                recyclerView.setAdapter(mAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(RankActivity.this));
+
+            }
+        });
 
     }
+
+
+    private void runLayoutAnimation(final RecyclerView recyclerView) {
+        final Context context = recyclerView.getContext();
+        final LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(context, R.anim.fall_down);
+
+        recyclerView.setLayoutAnimation(controller);
+        recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.scheduleLayoutAnimation();
+    }
+
 }

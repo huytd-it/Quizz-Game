@@ -41,10 +41,18 @@
             android:text="Chọn lĩnh vực"
             style="@style/tvContentMedium" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvField"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvField"
+                android:layoutAnimation="@anim/layout_animation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
 
 
     </LinearLayout>

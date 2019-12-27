@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.LoginActivity"
+    android:layoutAnimation="@anim/slide_down_layout"
    >
 
     <LinearLayout
@@ -26,7 +27,7 @@
             style="@style/ImageViewStyle"
             app:srcCompat="@drawable/iconfinder_people_3336938" />
         <EditText
-            android:id="@+id/etUsername"
+            android:id="@+id/edtUsername"
             style="@style/edtName"
             android:hint="Nhập tên tài khoản"
             />
@@ -51,7 +52,7 @@
             style="@style/btnAnswer"
             android:text="Đăng nhập"
             android:background="@drawable/button"
-
+            android:onClick="onClickRegister"
 
           />
 
