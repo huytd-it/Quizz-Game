@@ -1,9 +1,28 @@
 package com.yukihuy.myapplication.Model;
 
 import ml.huytools.lib.Annotation.JsonName;
-import ml.huytools.lib.Model;
+import ml.huytools.lib.MVP.Model;
+
 
 public class Question extends Model {
+
+    @JsonName
+    private int id;
+    @JsonName
+    private String noi_dung;
+    @JsonName
+    private int id_linh_vuc;
+    @JsonName
+    private String phuong_an_A;
+    @JsonName
+    private String phuong_an_B;
+    @JsonName
+    private String phuong_an_C;
+    @JsonName
+    private String phuong_an_D;
+    @JsonName
+    private String dap_an;
+
     public int getId() {
         return id;
     }
@@ -79,10 +98,7 @@ public class Question extends Model {
         this.trang_thai = trang_thai;
     }
 
-    @JsonName
-    private int id;
-    @JsonName
-    private String noi_dung;
+
 
     public int getId_linh_vuc() {
         return id_linh_vuc;
@@ -92,18 +108,7 @@ public class Question extends Model {
         this.id_linh_vuc = id_linh_vuc;
     }
 
-    @JsonName
-    private int id_linh_vuc;
-    @JsonName
-    private String phuong_an_A;
-    @JsonName
-    private String phuong_an_B;
-    @JsonName
-    private String phuong_an_C;
-    @JsonName
-    private String phuong_an_D;
-    @JsonName
-    private String dap_an;
+
 
     public void setTrang_thai(int trang_thai) {
         this.trang_thai = trang_thai;

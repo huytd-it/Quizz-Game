@@ -2,7 +2,8 @@ package com.yukihuy.myapplication.Model;
 
 
 import ml.huytools.lib.Annotation.JsonName;
-import ml.huytools.lib.Model;
+import ml.huytools.lib.MVP.Model;
+
 
 public class Field extends Model {
     @JsonName

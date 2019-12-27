@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -40,6 +41,7 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.yukihuy.myapplication.API.Asynctask_DemGio;
 import com.yukihuy.myapplication.Apdapter.FieldListAdapter;
 import com.yukihuy.myapplication.Model.Field;
 import com.yukihuy.myapplication.Model.Question;
@@ -65,7 +67,7 @@ public class QuestionActivity extends AppCompatActivity {
     Dialog epicDialog;
     ImageView imgCloseDialogt;
     RequestQueue requestQueue;
-    String url = "http://192.168.56.1:8080/Karma_Laravel/public/api/cau_hoi_theo_linh_vuc?linh_vuc_id=";
+    String url = "https://cmsandroidgame.000webhostapp.com/api/cau_hoi_theo_linh_vuc?linh_vuc_id=";
     final LinkedList<Question> linkedList = new LinkedList<>();
 
     int point=0;
@@ -91,6 +93,9 @@ public class QuestionActivity extends AppCompatActivity {
         m_rad_DA3 = (Button) findViewById(R.id.btnDapAnC);
         m_rad_DA4 = (Button) findViewById(R.id.btnDapAnD);
         barChart = findViewById(R.id.bargraph);
+
+        Asynctask_DemGio demGio = new Asynctask_DemGio(m_time);
+        demGio.execute();
 
         //set Animation for ImageView
         Intent intent = getIntent();
@@ -133,6 +138,8 @@ public class QuestionActivity extends AppCompatActivity {
                 int credit = Integer.parseInt(tvCreditCurrent.getText().toString());
                  credit = credit - 200;
                  tvCreditCurrent.setText(String.valueOf(credit));
+                 point++;
+                 showContent();
             }
         });
         btnFiftyPercen.setOnClickListener(new View.OnClickListener() {
@@ -162,7 +169,7 @@ public class QuestionActivity extends AppCompatActivity {
 
 
 
-    private void setAnimationImage() {
+    public void setAnimationImage() {
         imgClockBig = findViewById(R.id.imgClockbig);
         imgClockMedium= findViewById(R.id.imgClockMedium);
         imgClockSmall = findViewById(R.id.imgClockSmall);
@@ -175,7 +182,7 @@ public class QuestionActivity extends AppCompatActivity {
         imgClockBig.startAnimation(animRotate1);
         imgClockMedium.startAnimation(animRotate2);
         imgClockSmall.startAnimation(animRotate3);
-        m_time.startAnimation(animBlink);
+
     }
     public void Chart() {
         ArrayList<BarEntry> barEntries = new ArrayList<>();

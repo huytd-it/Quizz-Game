@@ -16,7 +16,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.yukihuy.myapplication.Apdapter.FieldListAdapter;
+import com.yukihuy.myapplication.Apdapter.RankListAdapter;
 import com.yukihuy.myapplication.Model.Field;
+import com.yukihuy.myapplication.Model.PlayTime;
 import com.yukihuy.myapplication.R;
 
 import org.json.JSONArray;
@@ -24,14 +26,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+
+import ml.huytools.lib.API.ApiOutput;
+import ml.huytools.lib.API.ApiProvider;
+import ml.huytools.lib.App;
 
 public class LinhVucActivity extends AppCompatActivity {
-    ArrayList<Field> list = new ArrayList<>();
-
     private RecyclerView rcvFieldList;
     private FieldListAdapter mAdapter;
-    private RequestQueue requestQueue;
-    private String url = "http://192.168.56.1:8080/Karma_Laravel/public/api/linh_vuc";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +42,24 @@ public class LinhVucActivity extends AppCompatActivity {
         setContentView(R.layout.activity_linh_vuc);
         //loadField();
         //dataExample();
-        readJSON();
+        rcvFieldList = findViewById(R.id.rcvField);
+        App.getInstance().init(this);
+        ApiProvider.Async.GET("/linh_vuc").Then(new ApiProvider.Async.Callback() {
+            @Override
+            public void OnAPIResult(ApiOutput output, int requestCode) {
+                LinkedList<Field> playTimes = output.toModelManager(Field.class);
+                mAdapter = new FieldListAdapter(LinhVucActivity.this,playTimes);
+                rcvFieldList.setAdapter(mAdapter);
+                rcvFieldList.setLayoutManager(new LinearLayoutManager(LinhVucActivity.this));
+
+            }
+        });
+
 
 
     }
 
-    private void readJSON() {
+   /* private void readJSON() {
         requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override

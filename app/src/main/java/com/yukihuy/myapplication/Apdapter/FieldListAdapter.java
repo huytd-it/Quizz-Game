@@ -12,24 +12,20 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.yukihuy.myapplication.APIGetting;
 import com.yukihuy.myapplication.Model.Field;
 import com.yukihuy.myapplication.QuestionActivity;
 import com.yukihuy.myapplication.R;
-import com.yukihuy.myapplication.View.LinhVucActivity;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.concurrent.ExecutionException;
+
 
 public class FieldListAdapter extends RecyclerView.Adapter<FieldListAdapter.FieldViewHoder>{
     public Context mContext;
-    private ArrayList<Field> mfieldLinkedList;
+    private LinkedList<Field> mfieldLinkedList;
     private LayoutInflater mInflater;
 
 
-    public FieldListAdapter(Context context,ArrayList<Field> fieldLinkedList) {
+    public FieldListAdapter(Context context,LinkedList<Field> fieldLinkedList) {
         mInflater = LayoutInflater.from(context);
         this.mfieldLinkedList = fieldLinkedList;
     }
