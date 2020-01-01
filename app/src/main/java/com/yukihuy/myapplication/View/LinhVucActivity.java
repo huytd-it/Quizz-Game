@@ -23,10 +23,10 @@ import java.util.ArrayList;
 
 public class LinhVucActivity extends AppCompatActivity {
 
-    private String url = "http://192.168.56.1:8080/Laravel_QuanLyDuLieuGame/public/api/linh_vuc";
+    private String url = "https://cmsandroidgame.000webhostapp.com/api/linh_vuc";
     RecyclerView rcvFieldList;
     FieldListAdapter mAdapter;
-    ArrayList<JSONObject> list = new ArrayList<>();
+    ArrayList<JSONObject> list = new ArrayList<JSONObject>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
