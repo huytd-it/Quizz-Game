@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
+
 import android.os.Bundle;
 
 import android.util.Log;
@@ -23,7 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,10 +41,8 @@ import com.github.mikephil.charting.data.BarEntry;
 
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.yukihuy.myapplication.API.Asynctask_DemGio;
-import com.yukihuy.myapplication.Apdapter.FieldListAdapter;
-import com.yukihuy.myapplication.Model.Field;
 import com.yukihuy.myapplication.Model.Question;
-import com.yukihuy.myapplication.View.LinhVucActivity;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,7 +50,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+
 
 
 public class QuestionActivity extends AppCompatActivity {
@@ -67,7 +64,7 @@ public class QuestionActivity extends AppCompatActivity {
     Dialog epicDialog;
     ImageView imgCloseDialogt;
     RequestQueue requestQueue;
-    String url = "https://cmsandroidgame.000webhostapp.com/api/cau_hoi_theo_linh_vuc?linh_vuc_id=";
+    String url = "http://192.168.56.1:8080/Karma_Laravel/public/api/cau_hoi_theo_linh_vuc?linh_vuc_id=";
     final LinkedList<Question> linkedList = new LinkedList<>();
 
     int point=0;

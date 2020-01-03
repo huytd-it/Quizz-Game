@@ -22,14 +22,14 @@
           >
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imgAvatar"
                 android:layout_width="157dp"
                 android:layout_height="123dp"
                 style="@style/ImageViewStyle"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/ic_user" />
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tvName"
                 style="@style/tvRegular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,9 +53,8 @@
                     app:srcCompat="@drawable/small_diamond" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/tvCredit"
                     style="@style/tvRegular"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20000"

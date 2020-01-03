@@ -1,74 +1,72 @@
 package com.yukihuy.myapplication.Apdapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.yukihuy.myapplication.Model.Field;
-import com.yukihuy.myapplication.QuestionActivity;
+import com.yukihuy.myapplication.Model.Credit;
 import com.yukihuy.myapplication.R;
+import com.yukihuy.myapplication.View.GameAdminActivity;
 
 import java.util.LinkedList;
 
 
-public class FieldListAdapter extends RecyclerView.Adapter<FieldListAdapter.FieldViewHoder>{
+public class CreditListAdapter extends RecyclerView.Adapter<CreditListAdapter.CreditViewHolder>{
     public Context mContext;
-    private LinkedList<Field> mfieldLinkedList;
+    private LinkedList<Credit> mList;
     private LayoutInflater mInflater;
 
 
-    public FieldListAdapter(Context context,LinkedList<Field> fieldLinkedList) {
+    public CreditListAdapter(Context context, LinkedList<Credit> fieldLinkedList) {
         mInflater = LayoutInflater.from(context);
-        this.mfieldLinkedList = fieldLinkedList;
+        this.mList = fieldLinkedList;
     }
 
     @NonNull
     @Override
-    public FieldViewHoder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.field_item,parent,false);
-        return new FieldViewHoder(view,this);
+    public CreditViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.credit_item,parent,false);
+        return new CreditViewHolder(view,this);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FieldViewHoder holder, int position) {
-        String mCurrent = mfieldLinkedList.get(position).getTen_linh_vuc();
-        holder.bntField.setText(mCurrent);
+    public void onBindViewHolder(@NonNull CreditViewHolder holder, int position) {
+        Credit credit = mList.get(position);
+        holder.tvMoney.setText("$"+ String.format("%,d",credit.getSo_tien()));
+        holder.tvCredit.setText(""+credit.getCredit());
     }
 
     @Override
     public int getItemCount() {
-        return mfieldLinkedList.size();
+        return mList.size();
     }
 
 
 
 
-    public class FieldViewHoder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public final Button bntField;
-        FieldListAdapter mAdapter;
-        public FieldViewHoder(@NonNull View itemView, FieldListAdapter adapter) {
+    public class CreditViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public  TextView tvMoney,tvCredit;
+        CreditListAdapter mAdapter;
+        public CreditViewHolder(@NonNull View itemView, CreditListAdapter adapter) {
             super(itemView);
-            bntField = itemView.findViewById(R.id.btnField);
+            tvCredit = itemView.findViewById(R.id.tvCredit);
+            tvMoney = itemView.findViewById(R.id.tvMoney);
             this.mAdapter = adapter;
-            bntField.setOnClickListener(this);
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
                 int mPosition = getLayoutPosition();
-                Field field = mfieldLinkedList.get(mPosition);
-                Log.d("--------------->List","ID = "+field.getId() + " list: " + field.getTen_linh_vuc());
-                Intent intent=new Intent(itemView.getContext(), QuestionActivity.class);
-                intent.putExtra("Message",String.valueOf(field.getId()));
-                Log.d("--------------->List","ID = "+field.getId() + " list: " + field.getTen_linh_vuc());
+                Credit field = mList.get(mPosition);
+                Intent intent=new Intent(itemView.getContext(), GameAdminActivity.class);
                 itemView.getContext().startActivity(intent);
 
 

@@ -1,29 +1,30 @@
 package com.yukihuy.myapplication.View;
 
-import android.app.job.JobInfo;
+
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
+
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.yukihuy.myapplication.Apdapter.FieldListAdapter;
-import com.yukihuy.myapplication.Apdapter.RankListAdapter;
-import com.yukihuy.myapplication.Model.Field;
-import com.yukihuy.myapplication.Model.PlayTime;
-import com.yukihuy.myapplication.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+import com.yukihuy.myapplication.API.UserAPI;
+import com.yukihuy.myapplication.Apdapter.FieldListAdapter;
+
+import com.yukihuy.myapplication.Model.Field;
+import com.yukihuy.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -35,29 +36,53 @@ import ml.huytools.lib.App;
 public class LinhVucActivity extends AppCompatActivity {
     private RecyclerView rcvFieldList;
     private FieldListAdapter mAdapter;
+    private TextView tvThongBao;
+    ApiOutput output;
+    DialogFragment dialog;
+    BarChart barChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linh_vuc);
-        //loadField();
-        //dataExample();
+
+        barChart = findViewById(R.id.bargraph);
         rcvFieldList = findViewById(R.id.rcvField);
+        tvThongBao = findViewById(R.id.tvThongBao);
+
+        UserAPI userAPI = new UserAPI(this);
+        userAPI.execute();
         App.getInstance().init(this);
-        ApiProvider.Async.GET("/linh_vuc").Then(new ApiProvider.Async.Callback() {
-            @Override
-            public void OnAPIResult(ApiOutput output, int requestCode) {
-                LinkedList<Field> playTimes = output.toModelManager(Field.class);
-                mAdapter = new FieldListAdapter(LinhVucActivity.this,playTimes);
-                rcvFieldList.setAdapter(mAdapter);
-                rcvFieldList.setLayoutManager(new LinearLayoutManager(LinhVucActivity.this));
-
-            }
-        });
-
-
 
     }
+    public void LoadComplete(ApiOutput output){
+        this.output = output;
+        Show();
+
+    }
+    public void Show(){
+        LinkedList<Field> playTimes = output.toModelManager(Field.class);
+        if(playTimes.size() <= 0){
+           tvThongBao.setText("API Error");
+           rcvFieldList.setVisibility(View.INVISIBLE);
+        }
+        else {
+            mAdapter = new FieldListAdapter(LinhVucActivity.this,playTimes);
+            rcvFieldList.setAdapter(mAdapter);
+            rcvFieldList.setLayoutManager(new LinearLayoutManager(LinhVucActivity.this));
+        }
+
+    }
+    public void showDialog(){
+        dialog = new FireMissilesDialogFragment();
+        dialog.show(getSupportFragmentManager(),"YESSSSS");
+
+    }
+    public void destroyDialog(){
+        dialog.dismiss();
+    }
+
+
 
    /* private void readJSON() {
         requestQueue = Volley.newRequestQueue(this);
