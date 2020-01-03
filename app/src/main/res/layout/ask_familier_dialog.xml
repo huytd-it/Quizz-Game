@@ -49,7 +49,7 @@
                     android:textColor="@color/red"/>
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/buttonthemluotchoi"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="Xin cảm ơn"

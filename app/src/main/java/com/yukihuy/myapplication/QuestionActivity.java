@@ -19,6 +19,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ import com.yukihuy.myapplication.API.Asynctask_DemGio;
 import com.yukihuy.myapplication.Apdapter.FieldListAdapter;
 import com.yukihuy.myapplication.Model.Field;
 import com.yukihuy.myapplication.Model.Question;
+import com.yukihuy.myapplication.View.GameAdminActivity;
 import com.yukihuy.myapplication.View.LinhVucActivity;
 
 import org.json.JSONArray;
@@ -62,7 +64,7 @@ public class QuestionActivity extends AppCompatActivity {
     ImageView imgClockBig,imgClockMedium,imgClockSmall;
     BarChart barChart;
     ArrayList<BarEntry> barEntries;
-    private ImageButton btn_next,btnAskIdeaAudience,btnAskFamylier,btnFiftyPercen,btnBuyCredit;
+    private ImageButton btnAskIdeaAudience,btnAskFamylier,btnFiftyPercen,btnBuyCredit;
     protected  TextView tvCreditCurrent;
     Dialog epicDialog;
     ImageView imgCloseDialogt;
@@ -71,7 +73,6 @@ public class QuestionActivity extends AppCompatActivity {
     final LinkedList<Question> linkedList = new LinkedList<>();
 
     int point=0;
-    int cur=0;
     TextView m_txt_num;
     TextView m_txt_content;
     TextView m_rad_DA1;
@@ -79,6 +80,7 @@ public class QuestionActivity extends AppCompatActivity {
     TextView m_rad_DA3;
     TextView m_rad_DA4;
     TextView m_time;
+    String dap_an ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,45 +103,95 @@ public class QuestionActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String id = intent.getStringExtra("Message");
 
+        //Xu li Json
         readJSON(id);
         setAnimationImage();
 
         //Dialog
         epicDialog = new Dialog(this);
+
         //Chart();
         btnAskIdeaAudience = findViewById(R.id.btnAskAudi);
         btnAskFamylier = findViewById(R.id.btnAskFamilier);
         btnFiftyPercen = findViewById(R.id.btnFiftyPercent);
         btnBuyCredit = findViewById(R.id.btnBuyCredit);
 
-
-
-       m_rad_DA1.setOnClickListener(new View.OnClickListener() {
+        //Xu li Button tra loi cau hoi
+        {
+        m_rad_DA1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                m_rad_DA1.setBackgroundResource(R.drawable.blink_color);
-                animBlink_color = (AnimationDrawable) m_rad_DA1.getBackground();
-                animBlink_color.start();
-                //point++;
-               // showContent();
-
+            public void onClick(View view) {
+                int length = m_rad_DA1.getText().length();
+                String tl = (String) m_rad_DA1.getText().subSequence(3, length);
+                if (tl.equals(dap_an)) {
+                    m_rad_DA1.setBackgroundResource(R.drawable.blink_color);
+                    animBlink_color = (AnimationDrawable) m_rad_DA1.getBackground();
+                    animBlink_color.start();
+                    point++;
+                    showContent();
+                } else {
+                    showDialog(view);
+                }
+            }
+        });
+        m_rad_DA2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int length = m_rad_DA2.getText().length();
+                String tl = (String) m_rad_DA2.getText().subSequence(3, length);
+                if (tl.equals(dap_an)) {
+                    m_rad_DA2.setBackgroundResource(R.drawable.blink_color);
+                    animBlink_color = (AnimationDrawable) m_rad_DA2.getBackground();
+                    animBlink_color.start();
+                    point++;
+                    showContent();
+                } else {
+                    showDialog(view);
+                }
+            }
+        });
+        m_rad_DA3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int length = m_rad_DA3.getText().length();
+                String tl = (String) m_rad_DA3.getText().subSequence(3, length);
+                if (tl.equals(dap_an)) {
+                    m_rad_DA3.setBackgroundResource(R.drawable.blink_color);
+                    animBlink_color = (AnimationDrawable) m_rad_DA3.getBackground();
+                    animBlink_color.start();
+                    point++;
+                    showContent();
+                } else {
+                    showDialog(view);
+                }
             }
         });
         m_rad_DA4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                showDialog(v);
+            public void onClick(View view) {
+                int length = m_rad_DA4.getText().length();
+                String tl = (String) m_rad_DA4.getText().subSequence(3, length);
+                if (tl.equals(dap_an)) {
+                    m_rad_DA4.setBackgroundResource(R.drawable.blink_color);
+                    animBlink_color = (AnimationDrawable) m_rad_DA4.getBackground();
+                    animBlink_color.start();
+                    point++;
+                    showContent();
+                } else {
+                    showDialog(view);
+                }
             }
         });
+        }
         btnBuyCredit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tvCreditCurrent = findViewById(R.id.tvCreditCurrent);
                 int credit = Integer.parseInt(tvCreditCurrent.getText().toString());
-                 credit = credit - 200;
-                 tvCreditCurrent.setText(String.valueOf(credit));
-                 point++;
-                 showContent();
+                credit = credit - 200;
+                tvCreditCurrent.setText(String.valueOf(credit));
+                point++;
+                showContent();
             }
         });
         btnFiftyPercen.setOnClickListener(new View.OnClickListener() {
@@ -154,21 +206,19 @@ public class QuestionActivity extends AppCompatActivity {
         });
         btnAskIdeaAudience.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                showDialog(v);
+            public void onClick(View view) {
+                showDialog(view);
             }
-
         });
         btnAskFamylier.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                showDialog(v);
+            public void onClick(View view) {
+                showDialog(view);
             }
         });
     }
 
-
-
+    //SetAnimationImage
     public void setAnimationImage() {
         imgClockBig = findViewById(R.id.imgClockbig);
         imgClockMedium= findViewById(R.id.imgClockMedium);
@@ -184,6 +234,8 @@ public class QuestionActivity extends AppCompatActivity {
         imgClockSmall.startAnimation(animRotate3);
 
     }
+
+    //Y kien khan gia
     public void Chart() {
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         barEntries.add(new BarEntry(2f,10f));
@@ -215,9 +267,9 @@ public class QuestionActivity extends AppCompatActivity {
 
     }
 
+    //Dialog
     protected void showDialog(View view){
-        int id = view.getId();
-        switch (id){
+        switch (view.getId()){
             case R.id.btnAskAudi:{
                 epicDialog.setContentView(R.layout.ask_audience_dialog);
                 imgCloseDialogt = epicDialog.findViewById(R.id.imgClose);
@@ -229,37 +281,132 @@ public class QuestionActivity extends AppCompatActivity {
                 });
                 break;
             }
-            case R.id.btnAskFamilier:{
-                epicDialog.setContentView(R.layout.ask_familier_dialog);
+            case R.id.btnDapAnA:{
+                epicDialog.setContentView(R.layout.game_over_dialog);
+                Button btnketthuc = epicDialog.findViewById(R.id.btnketthuc);
+                Button btnthemluot = epicDialog.findViewById(R.id.btnthemluotchoi);
+                btnketthuc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(QuestionActivity.this,GameAdminActivity.class);
+                        startActivity(intent);
+                        epicDialog.dismiss();
+                    }
+                });
+                btnthemluot.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tvCreditCurrent = findViewById(R.id.tvCreditCurrent);
+                        int credit = Integer.parseInt(tvCreditCurrent.getText().toString());
+                        credit = credit - 300;
+                        tvCreditCurrent.setText(String.valueOf(credit));
+                        point++;
+                        showContent();
+                        epicDialog.dismiss();
+                    }
+                });
+                break;
+            }
+            case R.id.btnDapAnB:{
+                epicDialog.setContentView(R.layout.game_over_dialog);
+                Button btnketthuc = epicDialog.findViewById(R.id.btnketthuc);
+                Button btnthemluot = epicDialog.findViewById(R.id.btnthemluotchoi);
+                btnketthuc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(QuestionActivity.this,GameAdminActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                btnthemluot.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tvCreditCurrent = findViewById(R.id.tvCreditCurrent);
+                        int credit = Integer.parseInt(tvCreditCurrent.getText().toString());
+                        credit = credit - 300;
+                        tvCreditCurrent.setText(String.valueOf(credit));
+                        point++;
+                        showContent();
+                        epicDialog.dismiss();
+                    }
+                });
+                break;
+            }
+            case R.id.btnDapAnC:{
+                epicDialog.setContentView(R.layout.game_over_dialog);
+                Button btnketthuc = epicDialog.findViewById(R.id.btnketthuc);
+                Button btnthemluot = epicDialog.findViewById(R.id.btnthemluotchoi);
+                btnketthuc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(QuestionActivity.this,GameAdminActivity.class);
+                        startActivity(intent);
+                        epicDialog.dismiss();
+                    }
+                });
+                btnthemluot.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tvCreditCurrent = findViewById(R.id.tvCreditCurrent);
+                        int credit = Integer.parseInt(tvCreditCurrent.getText().toString());
+                        credit = credit - 300;
+                        tvCreditCurrent.setText(String.valueOf(credit));
+                        point++;
+                        showContent();
+                        epicDialog.dismiss();
+                    }
+                });
                 break;
             }
             case R.id.btnDapAnD:{
                 epicDialog.setContentView(R.layout.game_over_dialog);
+                Button btnketthuc = epicDialog.findViewById(R.id.btnketthuc);
+                Button btnthemluot = epicDialog.findViewById(R.id.btnthemluotchoi);
+                btnketthuc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(QuestionActivity.this,GameAdminActivity.class);
+                        startActivity(intent);
+                        epicDialog.dismiss();
+                    }
+                });
+                btnthemluot.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tvCreditCurrent = findViewById(R.id.tvCreditCurrent);
+                        int credit = Integer.parseInt(tvCreditCurrent.getText().toString());
+                        credit = credit - 300;
+                        tvCreditCurrent.setText(String.valueOf(credit));
+                        point++;
+                        showContent();
+                        epicDialog.dismiss();
+                    }
+                });
+                break;
+            }
+            case R.id.btnAskFamilier:{
+                epicDialog.setContentView(R.layout.ask_familier_dialog);
                 break;
             }
             default:
                 Toast.makeText(this,"Không có lựa chọn",Toast.LENGTH_SHORT);
                 break;
         }
-
         epicDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         epicDialog.show();
-
     }
 
+    //Show Cau Hoi
     public void showContent(){
-
-
         if(linkedList.size() > 0)
         {
-
             m_txt_num.setText(String.valueOf(point + 1));
             m_txt_content.setText(linkedList.get(point).getNoi_dung());
-
             m_rad_DA1.setText("A. "+linkedList.get(point).getPhuong_an_A());
             m_rad_DA2.setText("B. "+linkedList.get(point).getPhuong_an_B());
             m_rad_DA3.setText("C. "+linkedList.get(point).getPhuong_an_C());
             m_rad_DA4.setText("D. "+linkedList.get(point).getPhuong_an_D());
+            dap_an = linkedList.get(point).getDap_an();
         }
         else
         {
@@ -272,9 +419,8 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 
-
+    //JSonObject
     private void readJSON(String id) {
-
         requestQueue = Volley.newRequestQueue(this);
         url = url + id;
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
