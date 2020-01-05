@@ -22,6 +22,7 @@
         <activity android:name=".View.GameAdminActivity" />
         <activity android:name=".View.LinhVucActivity" />
         <activity android:name=".View.LoginActivity" />
+
         <activity android:name=".MainActivity">
 
             <intent-filter>

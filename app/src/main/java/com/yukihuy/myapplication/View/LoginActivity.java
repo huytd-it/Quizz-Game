@@ -1,14 +1,13 @@
 package com.yukihuy.myapplication.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,15 +16,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.yukihuy.myapplication.Model.LoginResponse;
-import com.yukihuy.myapplication.Model.User;
+import com.yukihuy.myapplication.API.LoginAPI;
 import com.yukihuy.myapplication.R;
 
-import ml.huytools.lib.API.ApiConfig;
-import ml.huytools.lib.API.ApiOutput;
 import ml.huytools.lib.API.ApiParameters;
-import ml.huytools.lib.API.ApiProvider;
-import ml.huytools.lib.API.JWTAuthenticate;
 import ml.huytools.lib.App;
 
 
@@ -34,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
      Intent intent = null;
     CheckBox cbxShowPassword;
-
+    DialogFragment dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +64,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-
-
     public void onClickRegister(View view){
         int id = view.getId();
         switch (id){
@@ -80,40 +72,35 @@ public class LoginActivity extends AppCompatActivity {
                 params.add("ten_dang_nhap",edtUsername.getText().toString());
                 params.add("mat_khau",edtPassword.getText().toString());
 
-                ApiProvider.Async.POST("/login").SetParams(params).Then(new ApiProvider.Async.Callback() {
-                    @Override
-                    public void OnAPIResult(ApiOutput output, int requestCode) {
-                        if(output == null || output.Status == false){
-                            Toast.makeText(LoginActivity.this, "Login error!", Toast.LENGTH_LONG).show();
-                        } else {
-                            LoginResponse response =(LoginResponse) output.toModel(LoginResponse.class);
-                            ApiConfig.setAuthenticate(new JWTAuthenticate(response.token));
-                            intent = new Intent(LoginActivity.this,GameAdminActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(LoginActivity.this, "Login success!", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                LoginAPI userAPI = new LoginAPI(this);
+                userAPI.execute(edtUsername.getText().toString(),edtPassword.getText().toString());
+
                 break;
             case R.id.btnLoginFacebook:
-                intent = new Intent(LoginActivity.this,GameAdminActivity.class);
+
                 break;
             case R.id.btnLoginGoogle:
-                intent = new Intent(LoginActivity.this,GameAdminActivity.class);
+
                 break;
             case R.id.titleRegister:
                 intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
                 break;
             case R.id.titleRestore:
                 intent = new Intent(LoginActivity.this,GetPassWordActivity.class);
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
                 break;
             default:
                 Toast.makeText(this,"Lựa chọn không có sẳn",Toast.LENGTH_LONG);
-        }
 
-
-        if(intent != null){
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
         }
+    }
+    public void showDialog(){
+        dialog = new ProgressDialog();
+        dialog.show(getSupportFragmentManager(),"YESSSSS");
+
+    }
+    public void destroyDialog(){
+        dialog.dismiss();
     }
 }

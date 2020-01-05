@@ -1,51 +1,35 @@
 package com.yukihuy.myapplication.API;
+import android.os.AsyncTask;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import com.yukihuy.myapplication.View.LinhVucActivity;
 
-public class FieldAPI{
-    public static String getField()
-    {
-        HttpURLConnection urlConnection = null;
-        BufferedReader reader = null;
-        String result = null;
-        try {
+import java.lang.ref.WeakReference;
 
-            URL requestURL = new URL("http://192.168.56.1:8080/Karma_Laravel/public/api/linh_vuc");
-            urlConnection = (HttpURLConnection) requestURL.openConnection();
-            urlConnection.setRequestMethod("GET");
-            urlConnection.connect();
+import ml.huytools.lib.API.ApiOutput;
+import ml.huytools.lib.API.ApiProvider;
 
+public class FieldAPI extends AsyncTask<Void,Integer,ApiOutput> {
+    WeakReference<LinhVucActivity>linhVucActivityWeakReference;
 
-            InputStream inputStream = urlConnection.getInputStream();
-            reader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder builder = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                builder.append(line);
-            }
-            if (builder.length() == 0) {
-                return null;
-            }
-            result = builder.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (urlConnection != null) {
-                urlConnection.disconnect();
-            }
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return result;
+    public FieldAPI(LinhVucActivity linhVucActivity) {
+        linhVucActivityWeakReference = new WeakReference<>(linhVucActivity);
+    }
+
+    @Override
+    protected void onPreExecute() {
+        linhVucActivityWeakReference.get().showDialog();
+    }
+
+    @Override
+    protected void onPostExecute(ApiOutput apiOutput) {
+        super.onPostExecute(apiOutput);
+        linhVucActivityWeakReference.get().destroyDialog();
+        linhVucActivityWeakReference.get().LoadComplete(apiOutput);
+    }
+
+    @Override
+    protected ApiOutput doInBackground(Void... voids) {
+        return  ApiProvider.GET("/linh_vuc");
+
     }
 }

@@ -27,7 +27,7 @@
                 android:layout_height="123dp"
                 style="@style/ImageViewStyle"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_user" />
+                app:srcCompat="@drawable/iconfinder_user_1287507" />
             <TextView
                 android:id="@+id/tvName"
                 style="@style/tvRegular"

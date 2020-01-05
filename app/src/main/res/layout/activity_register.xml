@@ -53,29 +53,5 @@
             style="@style/btnAnswer"
             android:text="Đăng kí tài khoản"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/tvContentMedium"
-            android:layout_margin="0dp"
-            android:text="Quên mật khẩu ?"
 
-            />
-        <TextView
-            android:id="@+id/titleRegister2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng nhập"
-            style="@style/tvContentMedium"
-            android:textColor="@color/red"
-            android:layout_margin="0dp"
-            android:textStyle="bold"
-            />
-    </LinearLayout>
 </RelativeLayout>

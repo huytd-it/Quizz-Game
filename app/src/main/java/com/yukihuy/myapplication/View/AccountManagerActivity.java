@@ -1,5 +1,7 @@
 package com.yukihuy.myapplication.View;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -17,6 +19,7 @@ import ml.huytools.lib.API.ApiProvider;
 public class AccountManagerActivity extends AppCompatActivity {
     EditText edtUserName,edtEmail,edtOldPassword,edtNewPassword;
     ImageView imgAvatar;
+    public String SHARED_PREFERENCES_NAME="share";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,15 +28,10 @@ public class AccountManagerActivity extends AppCompatActivity {
         edtUserName = findViewById(R.id.edtUsername);
         edtEmail = findViewById(R.id.edtEmail);
         imgAvatar = findViewById(R.id.imgAvatar);
-
-        ApiProvider.Async.GET("/user").Then(new ApiProvider.Async.Callback() {
-            @Override
-            public void OnAPIResult(ApiOutput output, int requestCode) {
-                User user = (User)output.toModel(User.class);
-                Log.d("TAG--------------------------------", "OnAPIResult: "+user.getTen_dang_nhap());
-                edtUserName.setText(user.getTen_dang_nhap());
-                edtEmail.setText(String.valueOf(user.getEmail()));
-            }
-        });
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+        String ten = sharedPreferences.getString("ten_dang_nhap","yukihuy");
+        String cre = sharedPreferences.getString("email","10000");
+        edtUserName.setText(ten);
+        edtEmail.setText(cre);
     }
 }

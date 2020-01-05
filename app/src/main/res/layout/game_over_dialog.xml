@@ -42,7 +42,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tvDapAnNguoiThan"
+                    android:id="@+id/tvCau"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="13"
@@ -67,7 +67,7 @@
                     android:textColor="@color/white"/>
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/btnthemluotchoi"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="Thêm 1 lượt 300 credit"
@@ -76,7 +76,7 @@
 
                     />
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/btnketthuc"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:text="Kết thúc"
