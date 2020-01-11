@@ -1,5 +1,8 @@
 # Quizz-Game
-  
+  Game trả lời câu hỏi đơn giản với 4 trợ giúp
+## Kỹ thuật
+- Ngôn ngữ: Java
+- XML, JWT, 
 ## Thiết kế
 ![DEMO](/app/src/main/res/drawable-v24/1.png)
 ![DEMO](/app/src/main/res/drawable-v24/19.png)
