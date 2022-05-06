@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.yukihuy.myapplication.View.GetPassWordActivity;
 
+import com.yukihuy.myapplication.View.LinhVucActivity;
 import com.yukihuy.myapplication.View.LoginActivity;
 import com.yukihuy.myapplication.View.PlayGameHistoryActivity;
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void config(){
-        ApiConfig.setHostname("https://cmsandroidgame.000webhostapp.com/api/");
+        ApiConfig.setHostname("http://192.168.56.1:8080/Karma_Laravel/public/api/");
     }
     public void onClickTow(View view){
         int id = view.getId();

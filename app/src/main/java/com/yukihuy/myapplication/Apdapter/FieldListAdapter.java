@@ -65,12 +65,9 @@ public class FieldListAdapter extends RecyclerView.Adapter<FieldListAdapter.Fiel
         public void onClick(View v) {
                 int mPosition = getLayoutPosition();
                 Field field = mfieldLinkedList.get(mPosition);
-                Log.d("--------------->List","ID = "+field.getId() + " list: " + field.getTen_linh_vuc());
                 Intent intent=new Intent(itemView.getContext(), QuestionActivity.class);
                 intent.putExtra("Message",String.valueOf(field.getId()));
-                Log.d("--------------->List","ID = "+field.getId() + " list: " + field.getTen_linh_vuc());
                 itemView.getContext().startActivity(intent);
-
 
         }
 

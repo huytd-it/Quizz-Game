@@ -40,7 +40,7 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListAdapter.RankVi
         PlayTime playTime = list.get(position);
         holder.tvRank.setText(String.valueOf(position + 1));
         holder.tvName.setText(playTime.getTen_dang_nhap());
-        holder.tvPoint.setText(String.valueOf(playTime.getDiem()));
+        holder.tvPoint.setText(String.format("%,d",playTime.getDiem()));
 
 
     }

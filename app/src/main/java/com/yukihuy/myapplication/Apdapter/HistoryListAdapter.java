@@ -35,7 +35,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
     public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
         PlayTime playTime = playTimeLinkedList.get(position);
         holder.tvNumber.setText("Số câu: "+playTime.getSo_cau());
-        holder.tvPoint.setText(playTime.getDiem() +" điểm");
+        holder.tvPoint.setText(String.format("%,d",playTime.getDiem())+" điểm");
         holder.tvDate.setText(playTime.getNgay_gio());
 
     }

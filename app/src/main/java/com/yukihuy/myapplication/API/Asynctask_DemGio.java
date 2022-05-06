@@ -1,16 +1,21 @@
 package com.yukihuy.myapplication.API;
 
 import android.os.AsyncTask;
+import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.widget.TextView;
+
+import com.yukihuy.myapplication.QuestionActivity;
 
 import java.lang.ref.WeakReference;
 
 public class Asynctask_DemGio extends AsyncTask<Void,String,String> {
-
+    WeakReference<QuestionActivity> questionActivityWeakReference;
     WeakReference<TextView> textViewWeakReference;
-    public Asynctask_DemGio(TextView textView) {
+    public Asynctask_DemGio(TextView textView,QuestionActivity questionActivity) {
         textViewWeakReference = new WeakReference<>(textView);
+        questionActivityWeakReference = new WeakReference<>(questionActivity);
+
     }
 
     @Override
@@ -20,20 +25,26 @@ public class Asynctask_DemGio extends AsyncTask<Void,String,String> {
 
     @Override
     protected void onPostExecute(String s) {
-        super.onPostExecute(s);
+
     }
 
     @Override
     protected void onProgressUpdate(String... values) {
-        textViewWeakReference.get().setText(values[0]);
+        textViewWeakReference.get().setText(""+values[0]);
     }
 
     @Override
     protected String doInBackground(Void... voids) {
-        for(int i = 1 ;i<=30;i++){
-            publishProgress(i+"");
-            SystemClock.sleep(1000);
+        for(int i = 60 ;i>=1;i--){
+            try{
+                publishProgress(i+"");
+                Thread.sleep(1000);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+
         }
         return null;
+
     }
 }

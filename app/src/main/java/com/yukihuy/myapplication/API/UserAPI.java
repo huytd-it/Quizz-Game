@@ -1,6 +1,7 @@
 package com.yukihuy.myapplication.API;
 import android.os.AsyncTask;
 
+import com.yukihuy.myapplication.View.GameAdminActivity;
 import com.yukihuy.myapplication.View.LinhVucActivity;
 
 import java.lang.ref.WeakReference;
@@ -8,10 +9,10 @@ import java.lang.ref.WeakReference;
 import ml.huytools.lib.API.ApiOutput;
 import ml.huytools.lib.API.ApiProvider;
 
-public class FieldAPI extends AsyncTask<Void,Integer,ApiOutput> {
-    WeakReference<LinhVucActivity>linhVucActivityWeakReference;
+public class UserAPI extends AsyncTask<Void,Integer,ApiOutput> {
+    WeakReference<GameAdminActivity>linhVucActivityWeakReference;
 
-    public FieldAPI(LinhVucActivity linhVucActivity) {
+    public UserAPI(GameAdminActivity linhVucActivity) {
         linhVucActivityWeakReference = new WeakReference<>(linhVucActivity);
     }
 
@@ -29,7 +30,7 @@ public class FieldAPI extends AsyncTask<Void,Integer,ApiOutput> {
 
     @Override
     protected ApiOutput doInBackground(Void... voids) {
-        return  ApiProvider.GET("/linh_vuc");
+        return  ApiProvider.GET("/user");
 
     }
 }

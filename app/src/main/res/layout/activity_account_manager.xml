@@ -23,10 +23,10 @@
                 style="@style/tvTitle"/>
 
             <ImageButton
-                android:id="@+id/imageView"
+                android:id="@+id/imgAvatar"
                 android:layout_width="162dp"
-                android:layout_height="120dp"
-                android:background="@drawable/ic_user"
+                android:layout_height="160dp"
+                android:background="@drawable/iconfinder_user_1287507"
                 android:layout_gravity="center"/>
         </LinearLayout>
 
@@ -37,23 +37,23 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/edtEmail"
                 style="@style/edtEmail"
-                android:hint="yukihuy9999@gmail.com"
+                android:hint="Mật khẩu"
                  />
 
             <EditText
-                android:id="@+id/editText5"
-                android:hint="Trần Đình Huy"
+                android:id="@+id/edtUsername"
+                android:hint="Tên đăng nhập"
                 style="@style/edtName" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/edtOldPassword"
                 style="@style/edtPass"
                 android:hint="Nhập mật khẩu cũ" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/edtNewPassword"
                 style="@style/edtPass"
                 android:hint="Nhập mật khẩu mới"
                 android:inputType="textPassword" />

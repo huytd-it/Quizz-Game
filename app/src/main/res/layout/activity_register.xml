@@ -26,47 +26,32 @@
             android:id="@+id/imageView"
             android:layout_width="162dp"
             android:layout_height="120dp"
-            app:srcCompat="@drawable/ic_user" />
-
+            app:srcCompat="@drawable/iconfinder_user_1287507" />
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edtEmail"
+            style="@style/edtName"
+            android:inputType="textEmailAddress"
+            android:hint="Nhập email của bạn"
+            />
+        <EditText
+            android:id="@+id/edtUsername"
             style="@style/edtName"
             android:hint="Nhập tên tài khoản"
            />
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/edtPassword"
+            style="@style/edtPass"
+            android:hint="Nhập mật khẩu"/>
+        <EditText
+            android:id="@+id/edtRePassword"
             style="@style/edtPass"
             android:hint="Nhập mật khẩu"/>
         <Button
-            android:id="@+id/btnRank"
+            android:id="@+id/btnRegister"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             style="@style/btnAnswer"
             android:text="Đăng kí tài khoản"/>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/tvContentMedium"
-            android:layout_margin="0dp"
-            android:text="Quên mật khẩu ?"
 
-            />
-        <TextView
-            android:id="@+id/titleRegister2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng nhập"
-            style="@style/tvContentMedium"
-            android:textColor="@color/red"
-            android:layout_margin="0dp"
-            android:textStyle="bold"
-            />
-    </LinearLayout>
 </RelativeLayout>
